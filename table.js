@@ -10,8 +10,9 @@ export class Table {
         this.tableNode = tableNode
     }
 
-    addRow(tds){
+    addRow(tds, onClick){
         const row = document.createElement('tr')
+        row.onclick = onClick
         const cells = tds.map(createCell)
         
         cells.map(cell => {

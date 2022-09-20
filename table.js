@@ -10,23 +10,13 @@ export class Table {
         this.tableNode = tableNode
     }
 
-    addRow(name, grade1, grade2, grade3){
+    addRow(tds){
         const row = document.createElement('tr')
-        const [
-            cellName,
-            cell1,
-            cell2,
-            cell3
-        ] = [
-            createCell(name),
-            createCell(grade1),
-            createCell(grade2),
-            createCell(grade3),
-        ]
-        row.appendChild(cellName)
-        row.appendChild(cell1)
-        row.appendChild(cell2)
-        row.appendChild(cell3)
+        const cells = tds.map(createCell)
+        
+        cells.map(cell => {
+            row.appendChild(cell)
+        })
 
         this.tableNode.appendChild(row)
     }

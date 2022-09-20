@@ -11,6 +11,8 @@ async function main(){
             student.nota1,
             student.nota2,
             student.nota3,
+            student.media,
+            student.status,
         ])
     })
 }

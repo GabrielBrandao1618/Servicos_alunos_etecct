@@ -54,9 +54,9 @@ export class Table {
     filterByStatus(status){
         if(status.trim() === ''){
             this.displayData = this.data;
-            return this;
+        } else {
+            this.displayData = this.data.filter(student => student.status === status);
         }
-        this.displayData = this.data.filter(student => student.status === status);
         this.renderItems();
     }
 }

@@ -6,6 +6,13 @@ async function main(){
     const table = new Table(document.querySelector('.table')).setData(apiData);
 
     table.renderItems(); 
+
+    const filterSelect = document.querySelector('#filter');
+    filterSelect.addEventListener('change', e => {
+        const status = e.target.value;
+        console.log(status);
+        table.filterByStatus(status);
+    });
 }
 
 main();

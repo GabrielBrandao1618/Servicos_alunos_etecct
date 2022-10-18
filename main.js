@@ -1,28 +1,26 @@
-import {getStudentsData} from './api.js'
-import {Table} from './table.js'
+import {getStudentsData} from './api.js';
+import {Table} from './table.js';
 
-const table = new Table(document.querySelector('.table'))
-
-function handleOpenDetails(student){
-    sessionStorage.setItem('student', JSON.stringify(student))
-    window.location.assign('./detail')
+function loadInfo(mean) {
+    const targetNodeMean = document.querySelector('.display-mean .display');
+    targetNodeMean.textContent = mean;
 }
 
 async function main(){
-    const apiData = await getStudentsData()
-    apiData.map(student => {
-        table.addRow(
-            [
-                student.nome,
-                student.nota1,
-                student.nota2,
-                student.nota3,
-                student.media,
-                student.status,
-            ],
-            () => handleOpenDetails(student)
-        )
-    })
+    const apiData = await getStudentsData();
+    const table = new Table(document.querySelector('.table')).setData(apiData);
+
+    table.renderItems(); 
+
+    loadInfo(table.mean);
+
+    const filterSelect = document.querySelector('#filter');
+    filterSelect.addEventListener('change', e => {
+        const status = e.target.value;
+        table.filterByStatus(status);
+
+        loadInfo(table.mean);       
+    });
 }
 
-main()
+main();

@@ -9,6 +9,7 @@ export function createCell(content){
 export class Table {
     tableNode = null;
     bodyNode = null;
+    mean = 0;
     data = [];
     displayData = [];
     constructor(tableNode){
@@ -29,12 +30,17 @@ export class Table {
         this.bodyNode.appendChild(row);
     }
     setData(data){
-        this.data = data;
-        this.displayData = data;
+        const sortedData = data.sort((a, b) => {
+            return a-b
+        });
+        this.data = sortedData;
+        this.displayData = sortedData;
         return this;
     }
     renderItems(){
         this.bodyNode.innerHTML = '';
+
+        this.mean = this.data.reduce((acc, student) => (acc+student.media)/2, this.data[0].media);
 
         this.displayData.map(student => {
             this.addRow(
@@ -45,7 +51,7 @@ export class Table {
                     student.nota3,
                     student.media,
                     student.status,
-                    'ACIMA DA MÉDIA'
+                    student.media > this.mean? 'Acima da média' : 'Abaixo da média'
                 ],
                 () => handleOpenDetails(student)
             );

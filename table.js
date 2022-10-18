@@ -1,9 +1,9 @@
 import {handleOpenDetails} from './handleOpenDetails.js';
 
 export function createCell(content){
-    const cell = document.createElement('td')
-    cell.textContent = content
-    return cell
+    const cell = document.createElement('td');
+    cell.textContent = content;
+    return cell;
 }
 
 export class Table {
@@ -24,7 +24,7 @@ export class Table {
         
         cells.map(cell => {
             row.appendChild(cell);
-        })
+        });
 
         this.bodyNode.appendChild(row);
     }
@@ -47,7 +47,6 @@ export class Table {
                     student.status,
                 ],
                 () => handleOpenDetails(student)
-            
             );
         });
     }

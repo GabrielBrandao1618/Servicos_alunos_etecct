@@ -19,3 +19,10 @@ body {
     color: rgba(255, 255, 255, 0.7);
     cursor:pointer;
 }
+
+.bottom {
+    display:flex;
+}
+.bottom .display-mean {
+    color: white;
+}

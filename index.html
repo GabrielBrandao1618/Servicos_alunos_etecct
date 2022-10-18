@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style.css">
     <script src="./api.js" defer type="module"></script>
     <script src="./table.js" defer type="module"></script>
+    <script type="module" src="./handleOpenDetails.js"></script>
     <script src="./main.js" defer type="module"></script>
     <title>Serviço de alunos</title>
 </head>
@@ -20,7 +21,14 @@
             <th>Média</th>
             <th>Status</th>
         </thead>
-        <!-- Auto generated content -->
+        <tbody>
+            <!-- Auto generated content -->
+        </tbody>
     </table>
+    <select name="filter" id="filter">
+        <option value="Aprovado">Aprovado</option>
+        <option value="Reprovado">Reprovado</option>
+        <option value="Aprovado com mérito">Aprovado com mérito</option>
+    </select>
 </body>
 </html>

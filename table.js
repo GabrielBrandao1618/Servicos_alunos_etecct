@@ -45,6 +45,7 @@ export class Table {
                     student.nota3,
                     student.media,
                     student.status,
+                    'ACIMA DA MÉDIA'
                 ],
                 () => handleOpenDetails(student)
             );

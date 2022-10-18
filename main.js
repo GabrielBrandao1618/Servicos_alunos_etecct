@@ -16,6 +16,8 @@ async function main(){
 
     table.renderItems(); 
 
+    loadInfo(getStudentsMean(table.displayData));
+
     const filterSelect = document.querySelector('#filter');
     filterSelect.addEventListener('change', e => {
         const status = e.target.value;
